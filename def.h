@@ -15,6 +15,7 @@
 #define INSERTIONSORT
 #define MERGESORT
 #define QUICKSORT
+#define HEAPSORT
 
 
 

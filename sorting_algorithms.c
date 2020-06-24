@@ -143,25 +143,102 @@ int selectionSort(int *arr,int arr_n)
 		}
 		arr[ind]=val;
 	}
+	printf("\nSorted Array is: ");
+	for(i=0;i<arr_n;i++)
+	{
+		printf("%d ",arr[i]);
+	}
+	printf("\nInstertion Sort Algorithm Completed!");
  	return 0;
  }
  #endif
  
  /*
  *********************************************************************************************************
- * Merge Sort:
+ * Merge Sort:  merge sort is the divide and conquer algorithm.
+ *				Merge sort is a recursive algorithm that continually splits a array in equal two halves. 
+ *				If the array is empty or has one item, it is sorted by definition (the base case). 
+ *				If the array has more than one item, we split array and recursively invoke a merge sort 
+ *				on both halves. Once the two halves are sorted, the fundamental operation, called a merge, is performed. 
+ *				Merging is the process of taking two smaller sorted array and combining them together 
+ *				into a single, sorted, new array.
  *	
  *				Time complexity :
  *				space complexity:
  *********************************************************************************************************
  */
  #ifdef MERGESORT
+  int merge(int arr[],int l[],int r[],int l_n,int r_n)
+ {
+ 	int i=0,j=0,k=0;
+ 	while(i<l_n && j<r_n)
+ 	{
+ 		if(l[i] <= r[j])
+		{
+			arr[k] = l[i];
+			i++; 	
+		}	
+		else
+		{
+			arr[k]=r[j];
+			j++;
+		}
+		k++;
+	}
+	while(i< l_n)
+	{
+		arr[k]=l[i];
+		i++;
+		k++;
+	}
+	while(j< r_n)
+	{
+		arr[k]=r[j];
+		j++;
+		k++;
+	}
+	int arr_n = l_n+r_n;						//arr_n variable name is used for total length of the array
+	
+		int i_temp=0;				//temp_used					while leaving will print the sorted array!
+		printf("\nSorted Array is: ");
+		for(i_temp=0;i_temp<arr_n;i_temp++)
+		{
+			printf("%d ",arr[i_temp]);
+		}
+	
+	 	
+ }
+ 
+ 
  int mergeSort(int *arr,int arr_n)
  { 
-	int i,j;
+	int i,j,l_n,r_n;							//l_l -> length of the left half divided array subroutine, r_l -> length of the right half divided array subroutine
 	printf("\nMerge Sort Proceeds!");
+	if(arr_n<SIZEOFINT)							//checking the single value is there if more then signal value if with return EXITSUCCESS and exit the function, while its not means it will continue spliting
+	{
+		printf("count = %d ",count++);
+		return 0;
+	}
+	l_n = arr_n/2;
+	r_n = arr_n-l_n;
+	
+	int l[l_n],r[r_n];
+	for(i=0;i<l_n;i++)
+	{
+		l[i]=arr[i];
+	}
+	for(j=0;j<r_n;j++)
+	{
+		r[j]=arr[j+l_n];
+	}
+ 	
+ 	mergeSort(l,l_n);						//recursion
+ 	mergeSort(r,r_n);
+ 	merge(arr,l,r,l_n,r_n);					//(original array,leftHanded array, rightHanded array, left handed array size, right hand array size)
  	
  }
+
+//todo
  #endif
  
  /*
@@ -194,6 +271,7 @@ int selectionSort(int *arr,int arr_n)
  {
  	int i,j;
 	printf("\nHeap Sort Proceeds!");	
+	return 0;
  } 
  #endif
 
