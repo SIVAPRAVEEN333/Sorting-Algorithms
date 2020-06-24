@@ -1,9 +1,13 @@
 #ifndef SORTING_ALGORITHMS_H_
 #define SORTING_ALGORITHMS_H_
 
-extern int BUBBLESORT(int *arr,int arr_n);
-
+extern int BUBBLESORT(int *arr,int arr_n);		
 extern int selectionSort(int *arr,int arr_n);
+extern int insertionSort(int *arr,int arr_n);
+extern int mergeSort(int *arr,int arr_n);
+extern int quickSort(int *arr,int arr_n);
+extern int heapSort(int *arr,int arr_n);
+
 
 
 #endif
