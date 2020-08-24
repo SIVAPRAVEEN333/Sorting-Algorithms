@@ -7,7 +7,7 @@ int main()
 	int i,j,sort_selection=0,arr_n,arr_size;
 	int *arr;
 	printf("Please select which sorting algorithm you need to proceed!\n");
-	printf("\nPress 1- Bubble Sort, 2- Selection Sort, 3- Insertion Sort, 4- Merge Sort, 5- Quick Sort, 6- Heap Sort //todo// :");
+	printf("\nPress 1- Bubble Sort, 2- Selection Sort, 3- Insertion Sort, 4- Merge Sort, 5- Quick Sort, 6- Heap Sort, 7- radix sort //todo// :");
 	scanf("%d",&sort_selection);
 
 	printf("\nEnter the Number of elements to be sorted in the array: ");
@@ -48,6 +48,10 @@ int main()
 	if(sort_selection==6)
 	{
 		heapSort(arr,arr_n);
+	}
+	if(sort_selection==7)
+	{
+		radixSort(arr,arr_n);
 	}
 		
 	/* todo
